@@ -46,6 +46,55 @@ def rbar_from_alpha(alpha, k):
 def iclust_cluster(R, n_clusters=2, alpha_rule=3, beta_rule=1,
                    beta_size=4, alpha_size=3, correct=True, reverse=True,
                    beta_min=0.5, verbose=True) -> Dict[str, Any]:
+    """
+    Parameters
+    ----------
+    R : pd.DataFrame or array-like
+        Correlation matrix (square, symmetric).
+
+    n_clusters : int, default=2
+        Stop clustering once this many clusters remain.
+
+    alpha_rule : int, default=3
+        Rule for Cronbach's alpha:
+            1 -> alpha_new >= min(alpha1, alpha2), Least strict
+            2 -> alpha_new >= mean(alpha1, alpha2), Medium
+            3 -> alpha_new >= max(alpha1, alpha2)  (psych default), Most strict
+
+    beta_rule : int, default=1
+        Rule for Revelle's beta:
+            1 -> beta_new >= min(beta1, beta2), Least strict
+            2 -> beta_new >= mean(beta1, beta2), Medium
+            3 -> beta_new >= max(beta1, beta2), Most strict
+
+    alpha_size : int, default=3
+        Apply alpha_rule only for clusters of size >= alpha_size.
+
+    beta_size : int, default=4
+        Apply beta_rule only for clusters of size >= beta_size.
+
+    correct : bool, default=True
+        Apply corrected similarity (recommended).
+
+    reverse : bool, default=True
+        Allow negative merges if absolute negative similarity is strongest.
+
+    beta_min : float, default=0.5
+        Minimum acceptable beta; cluster process stops if violated.
+
+    verbose : bool, default=True
+        If True, print details of each merge.
+
+    Returns
+    -------
+    dict
+        {
+          "results": DataFrame of merge history,
+          "clusters": final cluster membership matrix,
+          "cluster_names": list of cluster labels
+        }
+    """
+     
     if not isinstance(R, pd.DataFrame):
         R = pd.DataFrame(R)
 
