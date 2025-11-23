@@ -35,6 +35,12 @@ Outputs:
 - **`clusters`** — final cluster membership matrix
 - **`cluster_names`** — labels of the final clusters
 
+> **Note:**  
+> The ICLUST algorithm may stop *before* reaching the requested `n_clusters` if  
+> the alpha/beta merge criteria reject all remaining merges.  
+> In this case, the final number of clusters will be larger than `n_clusters`.  
+
+
 ---
 
 ## Installation
