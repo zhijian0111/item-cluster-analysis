@@ -3,7 +3,7 @@
 A Python package providing:
 
 - **Mixed-type correlation matrix computation**
-- **ICLUST hierarchical item clustering** (Python translation of the ICLUST algorithm from the R 'psych' package)
+- **ICLUST hierarchical item clustering** (Python translation of the ICLUST algorithm from the R `psych` package)
 
 > The ICLUST implementation is adapted from the R version documented at:  
 > https://personality-project.org/r/r.ICLUST.html
@@ -31,15 +31,13 @@ Implemented in 'correlation_computation.py', using the correct measure for each 
 Implemented in 'ICLUST.py'.
 
 Outputs:
-- **'results'** — merge history (step-by-step)
-- **'clusters'** — final cluster membership matrix
-- **'cluster_names'** — labels of the final clusters
+- **`results`** — merge history (step-by-step)
+- **`clusters`** — final cluster membership matrix
+- **`cluster_names`** — labels of the final clusters
 
 ---
 
-## Installation (from GitHub)
+## Installation
 
-Install directly from GitHub:
-
-'''bash
+```bash
 pip install git+https://github.com/zhijian0111/item-cluster-analysis.git
