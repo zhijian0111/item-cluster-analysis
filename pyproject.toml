@@ -1,0 +1,10 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "item-cluster-analysis"
+version = "0.1.0"
+description = "ICLUST clustering and mixed-type correlation matrix in Python"
+requires-python = ">=3.9"
+dependencies = ["numpy", "pandas", "scipy"]
