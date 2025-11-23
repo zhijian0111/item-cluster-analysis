@@ -39,7 +39,7 @@ Outputs:
 
 ## Installation (from GitHub)
 
-Install directly from GitHub — **no PyPI needed**:
+Install directly from GitHub:
 
 '''bash
-pip install git+https://github.com/YOUR_USERNAME/item-cluster-analysis.git
+pip install git+https://github.com/zhijian0111/item-cluster-analysis.git
