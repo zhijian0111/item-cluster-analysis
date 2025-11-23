@@ -14,7 +14,7 @@ A Python package providing:
 
 ### Mixed-Type Correlation Matrix
 
-Implemented in 'correlation_computation.py', using the correct measure for each variable pairing:
+Implemented in `correlation_computation.py`, using the correct measure for each variable pairing:
 
 | Variable Pair | Correlation Method |
 |---------------|--------------------|
@@ -28,7 +28,7 @@ Implemented in 'correlation_computation.py', using the correct measure for each 
 
 ### ICLUST Hierarchical Clustering
 
-Implemented in 'ICLUST.py'.
+Implemented in `ICLUST.py`.
 
 Outputs:
 - **`results`** — merge history (step-by-step)
