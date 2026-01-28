@@ -139,9 +139,9 @@ def compute_categorical_categorical_corr(x: Union[pd.Series, List[Any]], y: Unio
 
 def compute_mixed_corr_matrix(
     df: pd.DataFrame,
-    categorical_vars: List[str] | None,
-    numerical_vars: List[str] | None,
-    ordinal_vars: List[str] | None
+    categorical_vars: List[str] | None = None,
+    numerical_vars: List[str] | None = None,
+    ordinal_vars: List[str] | None = None
 ) -> pd.DataFrame:
     """
     Computes a correlation matrix for a DataFrame containing a mix of
