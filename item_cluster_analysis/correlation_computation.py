@@ -139,9 +139,9 @@ def compute_categorical_categorical_corr(x: Union[pd.Series, List[Any]], y: Unio
 
 def compute_mixed_corr_matrix(
     df: pd.DataFrame,
-    categorical_vars: List[str],
-    numerical_vars: List[str],
-    ordinal_vars: List[str]
+    categorical_vars: List[str] | None,
+    numerical_vars: List[str] | None,
+    ordinal_vars: List[str] | None
 ) -> pd.DataFrame:
     """
     Computes a correlation matrix for a DataFrame containing a mix of
@@ -163,6 +163,21 @@ def compute_mixed_corr_matrix(
     Returns:
         A pandas DataFrame representing the mixed-type correlation matrix.
     """
+    categorical_vars = categorical_vars or []
+    numerical_vars = numerical_vars or []
+    ordinal_vars = ordinal_vars or []
+
+    if not (categorical_vars or numerical_vars or ordinal_vars):
+        raise ValueError("At least one variable list must be non-empty.")
+
+    overlap = (
+        set(categorical_vars) & set(numerical_vars)
+        | set(categorical_vars) & set(ordinal_vars)
+        | set(numerical_vars) & set(ordinal_vars)
+    )
+    if overlap:
+        raise ValueError(f"Variables assigned to multiple types: {overlap}")
+
     vars_all = categorical_vars + numerical_vars + ordinal_vars
     k = len(vars_all)
     
